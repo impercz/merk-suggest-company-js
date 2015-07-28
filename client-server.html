@@ -6,6 +6,8 @@
     <title>suggest-company</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/typeaheadjs.css" rel="stylesheet"
         
     <!-- JS - needs to include !-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
@@ -43,6 +45,8 @@
   <body>
     
     <form id='suggestCompanyForm'>
+      <p><input type="text" name="email"  placeholder="Email" class="suggestEmail"/></p>
+
       <input type="text" name="companyName" placeholder="Company name" class="suggestName">
       
       <p><input type="text" name="regNumber" placeholder="registration number" /></p>
@@ -52,7 +56,7 @@
       <p><input type="text" name="number"  placeholder="Number"/></p>
       <p><input type="text" name="postal_code"  placeholder="Postal code"/></p>
       <p><input type="text" name="country_code"  placeholder="Country code"/></p>
-      <p><input type="text" name="email"  placeholder="Email" class="suggestEmail"/></p>
+
       <p><input type="text" name="phone"  placeholder="Phone"/></p>
       
     </form>

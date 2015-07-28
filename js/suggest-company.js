@@ -31,7 +31,7 @@ $.fn.merkSuggestify = function(suggest_by, proxy_url, api_to_inputs) {
     source: companies_result,
     templates: {
       suggestion: function(obj){ 
-        return "<div>" + obj.name + ", " + obj.address.street + " " + obj.address.number + ", " + obj.address.municipality + "</div>"
+        return "<div>" + obj.name + " - " + obj.regno + ", <br>" + obj.address.street + " " + obj.address.number + ", " + obj.address.municipality + "</div>"
       }
     }
   });
