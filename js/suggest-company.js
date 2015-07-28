@@ -42,7 +42,13 @@ $.fn.merkSuggestify = function(suggest_by, proxy_url, api_to_inputs) {
     $("input[name='"+api_to_inputs["name"]+"']").val(object.name);
     $("input[name='"+api_to_inputs["regno"]+"']").val(object.regno);
     $("input[name='"+api_to_inputs["vatno"]+"']").val(object.vatno);
-    $("input[name='"+api_to_inputs["first_email"]+"']").val(object.emails[0]);
+    $("input[name='"+api_to_inputs["first_email"]+"']").val(function(){
+
+      if($(this).val() == "")
+        return object.emails[0];
+      else
+        return $(this).val();
+    });;
     $("input[name='"+api_to_inputs["first_phone"]+"']").val(object.phones[0]);
     
 
