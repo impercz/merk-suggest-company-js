@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>suggest-company</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        
+    <!-- JS - needs to include !-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js" type="text/javascript" charset="utf-8"></script>
+    
+    <script src="./js/suggest-company.js" type="text/javascript" charset="utf-8"></script>
+    
+    <script type="text/javascript">
+    
+    // FOR MAPPING BETWEEN NAMES IN API AND YOUR FORM
+    var api_to_inputs = {
+      // API ATTRIBUTE: INPUT NAME
+      "name": "companyName",
+      "regno": "regNumber",
+      "vatno": "vatNumber",
+      "address": {
+        "municipality": "municipality",
+        "street": "street",
+        "number": "number",
+        "postal_code": "postal_code",
+        "country_code": "country_code",
+      },
+      "first_email": "email",
+      "first_phone": "phone"
+    }
+    
+    $(function(){
+      $('#suggestCompanyForm .suggestName').merkSuggestify("name", "http://localhost:8888/server/index.php", api_to_inputs);
+      $('#suggestCompanyForm .suggestEmail').merkSuggestify("email", "http://localhost:8888/server/index.php", api_to_inputs);
+    });
+    
+    </script>
+    
+  </head>
+  <body>
+    
+    <form id='suggestCompanyForm'>
+      <input type="text" name="companyName" placeholder="Company name" class="suggestName">
+      
+      <p><input type="text" name="regNumber" placeholder="registration number" /></p>
+      <p><input type="text" name="vatNumber" placeholder="Vat number" /></p>
+      <p><input type="text" name="municipality" placeholder="Municipality" /></p>
+      <p><input type="text" name="street"  placeholder="Street"/></p>
+      <p><input type="text" name="number"  placeholder="Number"/></p>
+      <p><input type="text" name="postal_code"  placeholder="Postal code"/></p>
+      <p><input type="text" name="country_code"  placeholder="Country code"/></p>
+      <p><input type="text" name="email"  placeholder="Email" class="suggestEmail"/></p>
+      <p><input type="text" name="phone"  placeholder="Phone"/></p>
+      
+    </form>
+    
+    
+  </body>
+</html>
