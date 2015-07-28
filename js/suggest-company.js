@@ -56,5 +56,3 @@ $.fn.merkSuggestify = function(suggest_by, proxy_url, api_to_inputs) {
 
   });
 };
- 
-
