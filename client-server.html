@@ -36,8 +36,8 @@
     }
     
     $(function(){
-      $('#suggestCompanyForm .suggestName').merkSuggestify("name", "http://localhost:8888/server/index.php", api_to_inputs);
-      $('#suggestCompanyForm .suggestEmail').merkSuggestify("email", "http://localhost:8888/server/index.php", api_to_inputs);
+      $('#suggestCompanyForm .suggestName').merkSuggestify("name", "/server/index.php", api_to_inputs);
+      $('#suggestCompanyForm .suggestEmail').merkSuggestify("email", "/server/index.php", api_to_inputs);
     });
     
     </script>
@@ -48,15 +48,15 @@
     <form id='suggestCompanyForm'>
       <p><input type="text" name="email"  placeholder="Email" class="suggestEmail"/></p>
 
-      <input type="text" name="companyName" placeholder="Company name" class="suggestName">
+      <input type="text" name="companyName" placeholder="Company Name" class="suggestName">
       
-      <p><input type="text" name="regNumber" placeholder="registration number" /></p>
-      <p><input type="text" name="vatNumber" placeholder="Vat number" /></p>
+      <p><input type="text" name="regNumber" placeholder="Registration Number" /></p>
+      <p><input type="text" name="vatNumber" placeholder="VAT Number" /></p>
       <p><input type="text" name="municipality" placeholder="Municipality" /></p>
       <p><input type="text" name="street"  placeholder="Street"/></p>
       <p><input type="text" name="number"  placeholder="Number"/></p>
-      <p><input type="text" name="postal_code"  placeholder="Postal code"/></p>
-      <p><input type="text" name="country_code"  placeholder="Country code"/></p>
+      <p><input type="text" name="postal_code"  placeholder="Postal Code"/></p>
+      <p><input type="text" name="country_code"  placeholder="Country Code"/></p>
 
       <p><input type="text" name="phone"  placeholder="Phone"/></p>
       
