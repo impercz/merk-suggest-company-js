@@ -11,6 +11,8 @@
      -moz-border-radius: 8px;
           border-radius: 8px;
   outline: none;
+  color: #999;
+  visibility:hidden; /* By default hint is hidden - you can turn it on here */
 }
 
 .typeahead {
