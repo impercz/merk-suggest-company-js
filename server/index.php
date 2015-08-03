@@ -3,7 +3,7 @@ header('Access-Control-Allow-Origin: *');
 ini_set('display_errors', '0');
 
 # !!!!Change it by your Authorization token!!!!!
-$token = "O9qQGL7NBg6hhN5miS5yr0759oM1Zh92";
+$token = "Your token goes here";
 
 $api_url = "https://api.merk.cz:443/";
 $api_method = "suggest";
