@@ -1,7 +1,6 @@
 
 .typeahead,
-.tt-query,
-.tt-hint {
+.tt-query{
   width: 396px;
   height: 30px;
   font-size: 24px;
@@ -12,7 +11,6 @@
           border-radius: 8px;
   outline: none;
   color: #999;
-  visibility:hidden; /* By default hint is hidden - you can turn it on here */
 }
 
 .typeahead {
@@ -30,7 +28,8 @@
 }
 
 .tt-hint {
-  color: #999
+  color: #aaa;
+  visibility: visible; /* Turn hint off by setting hidden */
 }
 
 .tt-menu {
