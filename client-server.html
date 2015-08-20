@@ -36,28 +36,29 @@
     }
     
     $(function(){
-      $('#suggestCompanyForm .suggestName').merkSuggestify("name", "/server/index.php", api_to_inputs);
+      // TO CHANGE SUGGESTION REFRESH RATE EDIT "requestDelay" (it's in milliseconds)
+      $('#suggestCompanyForm .suggestName').merkSuggestify("name", "/server/index.php", api_to_inputs, {requestDelay: 100});
       $('#suggestCompanyForm .suggestEmail').merkSuggestify("email", "/server/index.php", api_to_inputs);
+      $('#suggestCompanyForm .suggestRegno').merkSuggestify("regno", "/server/index.php", api_to_inputs);
     });
     
     </script>
     
   </head>
   <body>
-    
+    <h1>Autofill form</h1>
+
+
     <form id='suggestCompanyForm'>
       <p><input type="text" name="email"  placeholder="Email" class="suggestEmail"/></p>
-
-      <input type="text" name="companyName" placeholder="Company Name" class="suggestName">
-      
-      <p><input type="text" name="regNumber" placeholder="Registration Number" /></p>
+      <p><input type="text" name="companyName" placeholder="Company Name" class="suggestName"/></p>
+      <p><input type="text" name="regNumber" placeholder="Registration Number" class="suggestRegno"/></p>
       <p><input type="text" name="vatNumber" placeholder="VAT Number" /></p>
       <p><input type="text" name="municipality" placeholder="Municipality" /></p>
       <p><input type="text" name="street"  placeholder="Street"/></p>
       <p><input type="text" name="number"  placeholder="Number"/></p>
       <p><input type="text" name="postal_code"  placeholder="Postal Code"/></p>
       <p><input type="text" name="country_code"  placeholder="Country Code"/></p>
-
       <p><input type="text" name="phone"  placeholder="Phone"/></p>
       
     </form>
