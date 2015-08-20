@@ -3,6 +3,10 @@ html {
   color: #292f33;
 }
 
+.suggestName,.suggestEmail,.suggestRegno {
+  border: 2px solid #000;
+}
+
 input {
   width: 396px;
   height: 22px;
@@ -15,3 +19,4 @@ input {
           border-radius: 8px;
   outline: none;
 }
+
