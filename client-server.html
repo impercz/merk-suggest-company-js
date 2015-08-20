@@ -36,7 +36,8 @@
     }
     
     $(function(){
-      $('#suggestCompanyForm .suggestName').merkSuggestify("name", "/server/index.php", api_to_inputs);
+      // TO CHANGE SUGGESTION REFRESH RATE EDIT "requestDelay" (it's in milliseconds)
+      $('#suggestCompanyForm .suggestName').merkSuggestify("name", "/server/index.php", api_to_inputs, {requestDelay: 100});
       $('#suggestCompanyForm .suggestEmail').merkSuggestify("email", "/server/index.php", api_to_inputs);
       $('#suggestCompanyForm .suggestRegno').merkSuggestify("regno", "/server/index.php", api_to_inputs);
     });

@@ -1,10 +1,13 @@
 
-$.fn.merkSuggestify = function(suggest_by, proxy_url, api_to_inputs) {
+$.fn.merkSuggestify = function(suggest_by, proxy_url, api_to_inputs, options) {
+  if (options == undefined) { options = {}; };  
+  if (options.requestDelay == undefined) { options.requestDelay = 300; };  
+
   var companies_result = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.obj.whitespace(suggest_by),
     queryTokenizer: Bloodhound.tokenizers.whitespace,
     remote: {
-      
+        rateLimitWait: options.requestDelay,
         url: proxy_url,
         prepare: function(query, settings){
           data = {};
@@ -33,18 +36,18 @@ $.fn.merkSuggestify = function(suggest_by, proxy_url, api_to_inputs) {
     remote: {
         filter: function(parsedResponse) {
             var dataset = [];
-
             dataset = parsedResponse.data;
-            console.log(parsedResponse.data);
-            console.log(dataset); // debug the response here
-
             return dataset;
         }
     },
 
     templates: {
       suggestion: function(obj){ console.log(obj);
-        return "<div>" + obj.name + " - " + obj.regno + ", <br>" + obj.address.street + " " + obj.address.number + ", " + obj.address.municipality + "</div>"
+        if (obj.address !== undefined) {    
+          return "<div>" + obj.name + " - " + obj.regno + ", <br>" + obj.address.street + " " + obj.address.number + ", " + obj.address.municipality + "</div>"
+        } else {
+          return "<div>" + obj.name + " - " + obj.regno + "</div>"
+        }
       }
     }
   });
@@ -62,10 +65,13 @@ $.fn.merkSuggestify = function(suggest_by, proxy_url, api_to_inputs) {
         return $(this).val();
     });;
     $("input[name='"+api_to_inputs["first_phone"]+"']").val(object.phones[0]);
-    $("input[name='"+api_to_inputs["address"]["municipality"]+"']").val(object.address.municipality);
-    $("input[name='"+api_to_inputs["address"]["street"]+"']").val(object.address.street);
-    $("input[name='"+api_to_inputs["address"]["number"]+"']").val(object.address.number);
-    $("input[name='"+api_to_inputs["address"]["postal_code"]+"']").val(object.address.postal_code);
-    $("input[name='"+api_to_inputs["address"]["country_code"]+"']").val(object.address.country_code);
+
+    if (object.address !== undefined) {    
+      $("input[name='"+api_to_inputs["address"]["municipality"]+"']").val(object.address.municipality);
+      $("input[name='"+api_to_inputs["address"]["street"]+"']").val(object.address.street);
+      $("input[name='"+api_to_inputs["address"]["number"]+"']").val(object.address.number);
+      $("input[name='"+api_to_inputs["address"]["postal_code"]+"']").val(object.address.postal_code);
+      $("input[name='"+api_to_inputs["address"]["country_code"]+"']").val(object.address.country_code);
+    }
   });
 };
