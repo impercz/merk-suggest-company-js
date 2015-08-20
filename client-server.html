@@ -37,7 +37,7 @@
     
     $(function(){
       // TO CHANGE SUGGESTION REFRESH RATE EDIT "requestDelay" (it's in milliseconds)
-      $('#suggestCompanyForm .suggestName').merkSuggestify("name", "/server/index.php", api_to_inputs, {requestDelay: 100});
+      $('#suggestCompanyForm .suggestName').merkSuggestify("name", "/server/index.php", api_to_inputs, {requestDelay: 10});
       $('#suggestCompanyForm .suggestEmail').merkSuggestify("email", "/server/index.php", api_to_inputs);
       $('#suggestCompanyForm .suggestRegno').merkSuggestify("regno", "/server/index.php", api_to_inputs);
     });
@@ -46,20 +46,23 @@
     
   </head>
   <body>
-    <h1>Autofill form</h1>
-
+    <h1>Vyzkoušejte si chytrý kontaktní formulář</h1>
+    <p>Formulář je propojený se službou <a href="http://www.merk.cz/">merk.cz</a> pomocí <a href="https://api.merk.cz/docs/">Merk API</a>.</p>
+    <p>Pro doplnění všech polí stačí zadat jen několik málo znaků. Napište <strong>název firmy</strong> (nápověda se zobrazí už při zadání tří prvních písmen), <strong>e-mail</strong>, nebo <strong>IČ,</strong> zbytek firemních údajů se doplní automaticky. </p>
+    <p>Použití formuláře je jednoduché a nasazení také. Usnadní vám práci ve vlastních interních aplikacích, nebo vašim klientům například při registraci do zákaznického systému nebo při zadávání kontaktních údaju v e-shopu.</p>  
+    <p>Návod na nasazení najdete <a href="https://github.com/impercz/merk-suggest-company-js">zde</a></p>
 
     <form id='suggestCompanyForm'>
+      <p><input type="text" name="companyName" placeholder="Název firmy" class="suggestName"/></p>
       <p><input type="text" name="email"  placeholder="Email" class="suggestEmail"/></p>
-      <p><input type="text" name="companyName" placeholder="Company Name" class="suggestName"/></p>
-      <p><input type="text" name="regNumber" placeholder="Registration Number" class="suggestRegno"/></p>
-      <p><input type="text" name="vatNumber" placeholder="VAT Number" /></p>
-      <p><input type="text" name="municipality" placeholder="Municipality" /></p>
-      <p><input type="text" name="street"  placeholder="Street"/></p>
-      <p><input type="text" name="number"  placeholder="Number"/></p>
-      <p><input type="text" name="postal_code"  placeholder="Postal Code"/></p>
-      <p><input type="text" name="country_code"  placeholder="Country Code"/></p>
-      <p><input type="text" name="phone"  placeholder="Phone"/></p>
+      <p><input type="text" name="regNumber" placeholder="IČ" class="suggestRegno"/></p>
+      <p><input type="text" name="vatNumber" placeholder="DIČ" /></p>
+      <p><input type="text" name="municipality" placeholder="Město" /></p>
+      <p><input type="text" name="street"  placeholder="Ulice"/></p>
+      <p><input type="text" name="number"  placeholder="Číslo popisné"/></p>
+      <p><input type="text" name="postal_code"  placeholder="PSČ"/></p>
+      <p><input type="text" name="country_code"  placeholder="Kód země"/></p>
+      <p><input type="text" name="phone"  placeholder="Telefon"/></p>
       
     </form>
     
