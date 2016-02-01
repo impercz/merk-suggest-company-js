@@ -2,7 +2,7 @@
 
 Simple JS library with connection to [Merk API](https://api.merk.cz/docs/) providing autocomplete for Czech and Slovak company data.
 
-Merk is a Czech and Slovak company database developed and maintained by Imper CZ, s.r.o. and you can find more information [here](https://imper.cz/merk/).
+Merk is a Czech and Slovak company database developed and maintained by Imper CZ, s.r.o. and you can find more information about the API [here]( https://www.merk.cz/api-strojovy-pristup/)(Czech).
 
 Full Merk API documentation is [here](https://api.merk.cz/docs/)
 Suggestion is implemented with Twitter [Typeahead.js](https://github.com/twitter/typeahead.js).
