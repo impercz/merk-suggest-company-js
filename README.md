@@ -2,9 +2,9 @@
 
 Simple JS library with connection to [Merk API](https://api.merk.cz/docs/) providing autocomplete for Czech and Slovak company data.
 
-Merk is a Czech and Slovak company database developed and maintained by Imper CZ, s.r.o. and you can find more [information about the API]( https://www.merk.cz/api-strojovy-pristup/) (Czech).
+Merk is a Czech and Slovak company database developed and maintained by Imper CZ s.r.o. and you can find more [information about the API]( https://www.merk.cz/api-strojovy-pristup/) (Czech).
 
-Full Merk API documentation is [here](https://api.merk.cz/docs/)
+Full Merk API documentation is [here](https://api.merk.cz/docs/).
 Suggestion is implemented with Twitter [Typeahead.js](https://github.com/twitter/typeahead.js).
 
 ##Example
@@ -16,7 +16,7 @@ If you are going to use with your form follow these steps:
 
 ###1. Obtain token to Merk
 This JS Library **requires you to be a registered user of Merk**.
-If you are not current Merk user proceed with free registration to Merk [here](https://www.merk.cz/accounts/register/?utm_source=api_doc&utm_medium=referral&utm_campaign=api). 
+If you are not current Merk user proceed with [free registration to Merk](https://www.merk.cz/accounts/register/?utm_source=api_doc&utm_medium=referral&utm_campaign=api). 
 
 After registration, log in your account and go to tab Connection (“Napojení”). 
 There you’ll find your **api_key**. There you can also reset your API access if needed. 
@@ -24,12 +24,12 @@ There you’ll find your **api_key**. There you can also reset your API access i
 
 ###3. Add JS in your html
 Download suggest-company.js and add it into your html site with: 
-	
+
 	<script src="./js/suggest-company.js" type="text/javascript" charset="utf-8"></script>
 
 
 ###4. Map fields
-Map fileds you want to fill from suuggestion in your form with 
+Map fileds you want to fill from suggestion in your form with 
 
 
     var api_to_inputs = {
@@ -38,10 +38,12 @@ Map fileds you want to fill from suuggestion in your form with
 This is required to **hide your token from a public access**. 
 
 You can use PHP server file we do provide. 
-Just upload folder /server to your *Document root*
+Just upload folder "server" to your *Document root*
 
 And set your token.
-**In /server/index.php set your token within $token = "Your token goes here";**.
+**In server/index.php set your token within**
+
+	$token = "Your token goes here";
 
 Otherwise you'll need to write your own server file.
 
@@ -57,8 +59,13 @@ You can use:
 Call example: 
 
     $(function(){
-      $('#suggestCompanyForm .suggestName').merkSuggestify("name", "/server/index.php", api_to_inputs);
-      
+      $('#suggest_name').merkSuggestify({
+        suggestBy: 'name',
+        proxyUrl: './server/index.php',
+        mapping: api_to_inputs
+      });
+    });
+
 You can also use our example form from *client-server.html* and basic CSS styles.
 
 ##Limitations
@@ -77,6 +84,6 @@ Suggestion is not tested on mobile devices.
 
 ##License
 
-Copyright 2015 [Imper CZ, s.r.o.](https://imper.cz)
+Copyright 2016 [Imper CZ s.r.o.](https://imper.cz)
 
-Licensed under the MIT License
+Licensed under the MIT License.

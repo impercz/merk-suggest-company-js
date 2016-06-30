@@ -1,22 +1,75 @@
-html {
-  font: normal normal normal 18px/1.2 "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
-  color: #292f33;
+* {
+	box-sizing: border-box;
 }
 
-.suggestName,.suggestEmail {
-  border: 2px solid #000;
+html {
+	font: normal 18px/1.2 "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+	color: #292f33;
+}
+
+::-webkit-input-placeholder {
+	font-size: 18px;
+	line-height: 22px;
+    color: #cccccc;
+}
+:-moz-placeholder {
+	font-size: 18px;
+	line-height: 22px;
+    color: #cccccc;
+}
+::-moz-placeholder {
+	font-size: 18px;
+	line-height: 22px;
+    color: #cccccc;
+}
+:-ms-input-placeholder {
+	font-size: 18px;
+	line-height: 22px;
+    color: #cccccc;
+}
+
+label {
+	display: none;
+}
+
+.ie9lte label {
+	display: inline-block;
+	line-height: 38px;
+	color: #999;
+	width: 115px;
+	text-align: right;
+	padding-right:
+}
+
+.ie9lte button {
+	margin-left: 115px;
 }
 
 input {
-  width: 396px;
-  height: 22px;
-  padding: 8px 12px;
-  font-size: 18px;
-  line-height: 30px;
-  border: 2px solid #ccc;
-  -webkit-border-radius: 8px;
-     -moz-border-radius: 8px;
-          border-radius: 8px;
-  outline: none;
+	width: 500px;
+	height: 38px;
+	padding: 8px 32px 8px 12px;
+	font-size: 18px;
+	line-height: 22px;
+	border: 1px solid #ccc;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	outline: none;
+	-webkit-box-shadow: inset 0px 0px 2px 2px rgba(0,0,0,0.15);
+	-moz-box-shadow: inset 0px 0px 2px 2px rgba(0,0,0,0.15);
+	box-shadow: inset 0px 0px 2px 2px rgba(0,0,0,0.05);
 }
 
+input.tt-input {
+	border-color: #999;
+	background-position: 99% center;
+	background-position: calc(100% - 12px) center;
+	background-repeat: no-repeat;
+	/* the !important below is IE hack */
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4AYeCzIlTzcL+QAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAABLElEQVQoz43T3UvUQRjF8c9Zf1IZFWW4QURdmVAQ0sv/D10kddF9FxUqa4VBWUoY+nTzLG3bZs7NzMPMl/PMOTOpKv8bSVILDuZfcJJVjHEZS9jHblX9OBNOchePcAOnGCF4h9c4qKoaFoBjPMMxXuFbb93EZq+f42SYA5fxABewVVU7M9vbSVawjjdJ9kZzwldaYR+fF1ix0+2PMZqHp3f7iUVOTs8vzRbTcYCvWMPKAnitwU84/QOuquM26CqeJLmdZEhyMckGNjDBx7/cTnIfd7qjex3VYdfX24utTuJ3zknW8bSBXbzFKq7hBNt4X1VfpmLDjOLjBvfwEh86suU277CqTmY7HZLcwsOOaIIXmPRbPjrrzQ/43i5XK07qPL+lMw0u9Xx0XhB+AWV6avrM7VfLAAAAAElFTkSuQmCC) !important;
+}
+
+form > div {
+	margin-bottom: 10px;
+}
