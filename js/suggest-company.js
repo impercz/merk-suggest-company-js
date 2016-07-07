@@ -61,6 +61,7 @@
 		this.$element = $(element);
 		this.options = $.extend( {}, defaults, options) ;
 		this.$form = this.$element.closest('form');
+		this.intLoader = null;
 
 		this._defaults = defaults;
 		this._name = pluginName;
@@ -85,26 +86,39 @@
 					return obj[_this.options.suggestBy];
 				},
 
-				source: new Bloodhound({
-					datumTokenizer: Bloodhound.tokenizers.obj.whitespace(_this.options.suggestBy),
-					queryTokenizer: Bloodhound.tokenizers.whitespace,
-					remote: {
-						rateLimitWait: _this.options.requestDelay,
-						url: _this.options.proxyUrl,
+				source: function(query, syncResults, asyncResults) {
+					query = query.trim();
+					if (query.length < 2) return;
+					clearInterval(_this.intLoader);
+					_this.$element.addClass('loading');
+					var url = _this.options.proxyUrl + '?' + encodeURIComponent(_this.options.suggestBy) + '=' + encodeURIComponent(query);
 
-						prepare: function(query, settings){
-							var data = {};
-							data[_this.options.suggestBy] = query;
-							settings["data"] = data;
-							return settings;
+					$.get(url, function(data){
+						if (typeof data !== 'undefined') {
+							asyncResults(data);
 						}
-					}
-				}),
 
-				remote: {
-					filter: function(parsedResponse) {
-						return parsedResponse.data;
-					}
+					}).fail(function(e, data){
+						var errors = {
+							401: 'Not authorized',
+							403: 'Expired account or Assigned API calls limit exhausted',
+						};
+
+						if (e.status !== 400) {
+							if (errors.hasOwnProperty(e.status)) {
+								alert(errors[e.status]);
+
+							} else {
+								alert('Unknown error occured.');
+							}
+						}
+					}).always(function(){
+						clearInterval(_this.intLoader);
+						_this.intLoader = setInterval(function(){
+							_this.$element.removeClass('loading');
+						}, 1000);
+						
+					});
 				},
 
 				templates: {
@@ -118,10 +132,6 @@
 						return '<div>' + ret + '</div>';
 					}
 				}
-			});
-
-			this.$element.bind('typeahead:open', function(event, object) {
-				// console.log('Opened', event, object, this)
 			});
 
 			this.$element.bind('typeahead:select', function(event, object) {
