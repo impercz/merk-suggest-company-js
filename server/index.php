@@ -7,8 +7,7 @@
 
 
 # !!!! Change it for your Authorization token !!!!!
-#$token = "Your token goes here";
-$token = "BBwU4EcX7b86m3NmuRVXVEYbBQZGSQDm";
+$token = "Your token goes here";
 
 
 
