@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <title>Suggest company demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="css/demo.css" rel="stylesheet">
+
+  <!-- basic CSS theme for suggest -->
+  <link href="./css/suggest-company.css" rel="stylesheet">
+
+  <!-- required JS-->
+  <script src="https://code.jquery.com/jquery-3.4.0.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.jquery.min.js" defer></script>
+  <script src="js/suggest-company.jquery.js" defer></script>
+  <script src="js/demo.js" defer></script>
+</head>
+
+<body>
+<div class="content">
+  <h1>Vyzkoušejte si chytrý kontaktní formulář</h1>
+
+  <article>
+    <p>
+      Formulář je propojený se službou <a href="http://www.merk.cz/" target="_blank">merk.cz</a> pomocí <a
+            href="https://api.merk.cz/docs/" target="_blank">Merk API</a>.
+    </p>
+
+    <p>
+      Pro doplnění všech polí stačí zadat jen několik málo znaků, nápověda se zobrazí už při zadání tří prvních písmen.
+      Napište <strong>název firmy</strong>, <strong>IČO</strong> nebo <strong>e-mail,</strong> zbytek firemních údajů se
+      doplní automaticky.
+    </p>
+
+    <p>
+      Použití formuláře je jednoduché a nasazení také. Usnadní vám práci ve vlastních interních aplikacích, nebo vašim
+      klientům například při registraci do zákaznického systému nebo při zadávání kontaktních údaju v e-shopu.
+    </p>
+
+    <p>
+      Návod na nasazení najdete <a href="https://github.com/impercz/merk-suggest-company-js" target="_blank">zde</a>.
+    </p>
+  </article>
+
+  <form id="suggestCompanyForm">
+    <div>
+      <label for="id_companyName">Název firmy</label>
+      <input id="id_companyName" name="companyName" placeholder="Hledat firmu podle názvu (jen existující firmy)"/>
+    </div>
+    <div>
+      <label for="id_email">E-mail</label>
+      <input type="email" id="id_email" name="email" placeholder="Hledat firmu podle e-mailu"/>
+    </div>
+    <div>
+      <label for="id_regNumber">IČO</label>
+      <input type="number" min="1" max="99999999" step="1" id="id_regNumber" name="regNumber"
+             placeholder="Hledat firmu podle IČO"/>
+      <div id="regno_errors"></div>
+    </div>
+    <div>
+      <label for="id_vatNumber">DIČ</label>
+      <input id="id_vatNumber" name="vatNumber"/>
+    </div>
+    <div>
+      <label for="id_municipality">Město</label>
+      <input id="id_municipality" name="municipality"/>
+    </div>
+    <div>
+      <label for="id_street">Ulice</label>
+      <input id="id_street" name="street"/>
+    </div>
+    <div>
+      <label for="id_number">Číslo popisné</label>
+      <input id="id_number" name="number"/>
+    </div>
+    <div>
+      <label for="id_postal_code">PSČ</label>
+      <input id="id_postal_code" name="postal_code"/>
+    </div>
+    <div>
+      <label for="id_country_code">Kód země</label>
+      <input id="id_country_code" name="country_code"/>
+    </div>
+    <div>
+      <label for="id_phone">Telefon</label>
+      <input id="id_phone" name="phone"/>
+    </div>
+  </form>
+</div>
+</body>
+</html>

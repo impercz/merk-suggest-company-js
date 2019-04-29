@@ -1,0 +1,85 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font: normal 18px/1.2 "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+  color: #292f33;
+}
+
+body {
+  margin: 2rem;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "header header" "form article";
+  grid-row-gap: 2rem;
+  grid-column-gap: 2rem;
+  justify-items: stretch;
+  justify-content: space-around;
+}
+
+h1 {
+  grid-area: header;
+}
+
+article {
+  grid-area: article;
+}
+
+form {
+  grid-area: form;
+}
+
+::-webkit-input-placeholder {
+  font-size: 18px;
+  line-height: 22px;
+  color: #ccc;
+}
+
+:-moz-placeholder {
+  font-size: 18px;
+  line-height: 22px;
+  color: #ccc;
+}
+
+::-moz-placeholder {
+  font-size: 18px;
+  line-height: 22px;
+  color: #ccc;
+}
+
+:-ms-input-placeholder {
+  font-size: 18px;
+  line-height: 22px;
+  color: #ccc;
+}
+
+h1 {
+  margin: 0;
+  text-align: center;
+}
+
+label {
+  display: block;
+  line-height: 38px;
+}
+
+input {
+  width: 100%;
+  height: 38px;
+  padding: 8px 32px 8px 12px;
+  font-size: 18px;
+  line-height: 22px;
+  border: 1px solid #ccc;
+  border-radius: 0px;
+  outline: none;
+  box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.05);
+}
+
+form > div {
+  margin-bottom: 10px;
+}

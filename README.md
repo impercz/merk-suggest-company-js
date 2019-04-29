@@ -19,9 +19,9 @@ There you’ll find your **api_key**. There you can also reset your API access i
 
 
 ### 3. Add JS in your html
-Download suggest-company.js and add it into your html site with: 
+Download suggest-company.jquery.js and add it into your html site with: 
 
-	<script src="./js/suggest-company.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./js/suggest-company.jquery.js" type="text/javascript" charset="utf-8"></script>
 
 
 ### 4. Map fields
