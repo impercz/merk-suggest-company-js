@@ -65,8 +65,7 @@ Call example:
 You can also use our example form from *client-server.html* and basic CSS styles.
 
 ## Limitations
-Each Merk account is provided with **150 free API calls per month**.
-If you need more feel free to contact us at [podpora@merk.cz](mailto:podpora@merk.cz).
+The number of API requests allowed depends on the tariff purchased. If you need more feel free to contact us at [podpora@merk.cz](mailto:podpora@merk.cz).
 
 ## Browser Support
 
